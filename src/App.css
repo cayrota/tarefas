@@ -1,38 +1,174 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
 .App {
-  text-align: center;
+    margin-top: 4.375rem;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1 {
+    color: #fff;
+    font-size: 40px;
+    letter-spacing: 0.9375rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.AddTarefa {
+    background: #FFFFFF;
+    box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.5);
+    border-radius: 5px;
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    gap: 3rem;
+    height: 4rem;
+    margin-bottom: 1.5rem;
+}
+
+input[type="checkbox"] {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+  
+input[type="checkbox"] + label {
+    position: relative;
+    cursor: pointer;
+}
+
+input[type="checkbox"] + label::before {
+    content: "";
+    box-sizing: border-box;
+    padding: 0;
+    position: absolute;
+    width: 1.5rem;
+    height: 1.5rem;
+    left: 0;
+    bottom: 0;
+    border: 1px solid #E3E4F1;
+    border-radius: 50%;
+    vertical-align: bottom;
+}
+
+input[type="checkbox"]:checked + label::after {
+    content: url(images/icon-check.svg);
+    box-sizing: border-box;
+    position: absolute;
+    background: linear-gradient(135deg, #55DDFF 0%, #C058F3 100%);
+    width: 1.5rem;
+    height: 1.5rem;
+    left: 0;
+    bottom: 0;
+    border: linear-gradient(135deg, #55DDFF 0%, #C058F3 100%);
+    border-radius: 50%;
+    vertical-align: bottom;
+    display: grid;
+    place-content: center;
   }
+
+.nova-tarefa {
+    padding: 0;
+    border: none;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 18px;
+    width: 100%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.nova-tarefa::placeholder {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 18px;
+    border: none;
+    color: #9495A5;
 }
 
-.App-link {
-  color: #61dafb;
+.nova-tarefa:focus {
+    outline: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.card {
+    background-color: #FFFFFF;
+    box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.5);
+    border-radius: 5px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid #E3E4F1;
+    display: flex;
+    gap: 3rem;
+    min-height: 4rem;
+    display: flex;
+}
+
+span {
+    color: #494C6B;
+    font-size: 18px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+input[type="checkbox"]:checked + label + span {
+    text-decoration: line-through;
+    color: #D1D2DA;
+}
+
+.botao-fechar {
+    all: unset;
+}
+
+.botao-fechar {
+    visibility: hidden;
+    display: grid;
+    place-content: center;
+}
+
+li:hover > span > .botao-fechar {
+    visibility: visible;
+}
+
+.botao-fechar:hover {
+    cursor: pointer;
+}
+
+.controles {
+    display: flex;
+    padding: 1.25rem 1.5rem;
+    gap: 1.25rem;
+    font-size: 14px;
+    color: #9495A5;
+}
+
+.controles button {
+    all: unset;
+    cursor: pointer;
+}
+
+.controles button:hover {
+    color: #494C6B;
+}
+
+.filtros {
+    display: flex;
+    gap: 0.5625rem;
+}
+
+.filtros > p {
+    margin-right: 2.3125rem;
+}
+
+.filtros > button {
+    font-weight: 700;
+}
+
+button.filtro-ativo {
+    color: #3A7CFD;
 }
